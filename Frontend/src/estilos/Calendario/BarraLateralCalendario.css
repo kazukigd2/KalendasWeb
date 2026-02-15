@@ -1,0 +1,247 @@
+/* =====================================================
+   BARRA LATERAL
+===================================================== */
+
+.divBarraLateral {
+  width: clamp(260px, 22vw, 380px);
+  background: rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
+
+  border-right: 1px solid rgba(255,255,255,0.15);
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 1.4rem;
+  box-sizing: border-box;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Scroll elegante */
+.divBarraLateral::-webkit-scrollbar {
+  width: 6px;
+}
+
+.divBarraLateral::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 4px;
+}
+
+/* Responsive: barra lateral arriba */
+@media (max-width: 900px) {
+  .divBarraLateral {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+}
+
+/* =====================================================
+   BUSCADOR
+===================================================== */
+
+.buscarSubcalendarios {
+  width: 90%;
+  padding: 10px 14px;
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(6px);
+
+  border: 1px solid rgba(255,255,255,0.25);
+  color: var(--blanco);
+
+  font-size: 0.95rem;
+  margin-bottom: 1.2rem;
+}
+
+.buscarSubcalendarios::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+/* =====================================================
+   LISTA DE CALENDARIOS
+===================================================== */
+
+.lista-calendarios {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.item-calendario {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.visible-calendario-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Calendario "padre" */
+.div-calendario-flecha {
+  flex: 1;
+  background: rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 8px 12px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+  color: var(--blanco);
+}
+
+.div-calendario-flecha:hover {
+  background: rgba(255,255,255,0.22);
+  transform: scale(1.02);
+}
+
+.titulo-calendario-barraLateral {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Subcalendarios */
+.subcalendarios {
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  border-left: 2px solid rgba(255,255,255,0.15);
+  margin-left: 4px;
+}
+
+.titulo-subcalendario {
+  background: rgba(255,255,255,0.12);
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: var(--blanco);
+  font-size: 0.9rem;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+
+
+.titulo-subcalendario:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.imagenEditar {
+  width: 20px;
+  height: 20px;
+  opacity: 0.9;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.imagenOjo {
+  width: 25px;
+  height: 20px;
+  opacity: 0.9;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.imagenOjo:hover, .imagenEditar:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* =====================================================
+   ETIQUETAS
+===================================================== */
+
+.lista-etiquetas {
+  margin-top: 1.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.18);
+}
+
+.titulo-seccion {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--blanco);
+}
+
+.item-etiqueta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(255,255,255,0.1);
+  padding: 8px 10px;
+  border-radius: 8px;
+
+  margin-bottom: 0.4rem;
+
+  white-space: nowrap;        /* 🔥 NO PERMITIR SALTO DE LÍNEA */
+  overflow: hidden;           /* 🔥 EVITA DESBORDES */
+}
+
+.div-etiqueta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  width: 100%;
+  white-space: nowrap;         /* 🔥 Todo en una línea */
+}
+
+.nombre-etiqueta {
+  flex: 1;                      /* 🔥 El texto ocupa espacio flexible */
+  overflow: hidden;             /* 🔥 No se desborda */
+  text-overflow: ellipsis;      /* 🔥 Añade "..." si es muy largo */
+  white-space: nowrap;          /* 🔥 Mantener todo en una línea */
+  color: var(--blanco);
+  font-size: 0.9rem;
+}
+
+.etiqueta-color {
+  flex-shrink: 0;               /* No se reduce */
+}
+
+.imagenOjo {
+  flex-shrink: 0;               /* No empuja el resto */
+}
+
+.imagenEditar {
+  flex-shrink: 0;
+}
+.etiqueta-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+
+
+.icono-editar-oculto {
+  visibility: hidden;
+}
+
+.icono-editar-visible {
+  visibility: visible;
+  cursor: pointer;
+}
+
+.BotonesOjoyEditar{
+  display: flex;
+  gap:5px;
+}

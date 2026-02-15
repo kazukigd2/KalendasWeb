@@ -1,0 +1,355 @@
+/* ======================================================
+   CONTENEDOR PRINCIPAL
+====================================================== */
+.home-container {
+  padding: 3rem 5vw;
+  color: var(--blanco);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ======================================================
+   CABECERA
+====================================================== */
+.home-header {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.35)
+  );
+  backdrop-filter: blur(6px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 0rem;
+
+  padding-block: 2rem 1.5rem;
+  
+
+  overflow-x: clip;
+
+}
+
+.home-header-content {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  color: var(--blanco);
+}
+
+.home-title {
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 1px;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.4);
+}
+
+.home-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  opacity: 0.9;
+  margin-top: 0.8rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
+}
+
+/* ======================================================
+   SECCIÓN DE CALENDARIOS
+====================================================== */
+.seccion-titulo {
+  margin-top: 0.5rem;
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ======================================================
+   GRID RESPONSIVE
+====================================================== */
+.calendarios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+}
+
+/* ======================================================
+   TARJETA DE CALENDARIO
+====================================================== */
+.calendario-card {
+  position: relative;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(6px);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  z-index: 1;
+}
+
+.calendario-card:hover {
+  z-index: 5;
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.calendario-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  cursor: pointer;
+  border-bottom: 2px solid rgba(255,255,255,0.2);
+}
+
+.calendario-info {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendario-titulo {
+  font-size: 1.15rem;
+  font-weight: 600;
+  max-width: 80%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* ======================================================
+   BOTÓN DE CREAR CALENDARIO
+====================================================== */
+.boton-crear {
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(6px);
+  border: 2px dashed rgba(255,255,255,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 260px;
+  border-radius: 1rem;
+  transition: 0.25s ease;
+  cursor: pointer;
+}
+
+.boton-crear:hover {
+  border-color: var(--primero);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.boton-crear button,
+.boton-crear .boton {
+  pointer-events: none;
+}
+
+/* ======================================================================
+   BOTÓN IMPORTAR CALENDARIO
+====================================================================== */
+.boton-importar-cal {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 100;
+
+  background: rgba(114, 20, 20, 0.37);
+  backdrop-filter: blur(6px);
+  padding: 0.6rem 1.1rem;
+  border-radius: 0.7rem;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--blanco);
+
+  cursor: pointer;
+  transition: 0.25s ease;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.boton-importar-cal:hover {
+  background: rgba(187, 16, 16, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 18px rgba(0,0,0,0.28);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.icono-importar {
+  width: 18px;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
+
+
+/* ======================================================
+   MENÚ DESPLEGABLE
+====================================================== */
+.icono-opciones {
+  width: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+  filter: brightness(0) invert(1);
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 1rem;
+  bottom: 4rem;
+  background: rgba(20,20,20,0.85);
+  backdrop-filter: blur(6px);
+  padding: 1rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  animation: fadeInDropdown 0.15s ease;
+  z-index: 999;
+}
+
+@keyframes fadeInDropdown {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.dropdown-menu p {
+  margin: 0;
+  padding: 0.4rem 0;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  transition: 0.2s ease;
+}
+
+.dropdown-menu p:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.dropdown-menu .eliminar {
+  color: #ff7777;
+}
+
+@media (max-width: 480px) {
+  .calendario-img {
+    height: 140px;
+  }
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrap-titulo-cal{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ver-mas-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem; /* 🔥 Necesario para que no se tape */
+}
+
+.ver-mas-btn {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: var(--blanco);
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: 0.2s ease;
+}
+
+.ver-mas-btn:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+}
+
+
+
+
+
+
+
+
+/* ======================================================
+   GOOGLE CALENDAR IMPORT MENU (MISMO ESTILO TOPBAR)
+====================================================== */
+
+.google-calendar-menu {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.5rem);
+  min-width: 18rem;
+
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(10px);
+  border-radius: 0.8rem;
+  padding: 0.4rem 0;
+
+  display: flex;
+  flex-direction: column;
+
+  opacity: 0;
+  transform: translateY(-0.6rem);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  z-index: 1000;
+}
+
+.google-calendar-menu.activo {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.google-calendar-menu.cerrando {
+  opacity: 0;
+  transform: translateY(-0.6rem);
+}
+
+/* ======================================================
+   OPCIONES DEL MENÚ (igual que boton-menu)
+====================================================== */
+
+.google-calendar-option {
+  padding: 0.7rem 1rem;
+  width: 100%;
+  text-align: left;
+
+  background: none;
+  border: none;
+  color: var(--blanco);
+  font-size: 1rem;
+
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: background 0.25s ease, opacity 0.25s ease;
+}
+
+.google-calendar-option:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.google-calendar-option.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.google-calendar-option.disabled:hover {
+  background: none;
+}

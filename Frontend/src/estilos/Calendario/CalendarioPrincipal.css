@@ -1,0 +1,288 @@
+/* =====================================================
+   CONTENEDOR DEL CALENDARIO PRINCIPAL
+===================================================== */
+
+.divCalendario {
+  flex: 1;
+  min-width: 0;
+
+  height: 90vh;            /* 🔥 NECESARIO para que FC calcule bien */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;         /* 🔥 evita que FC salga */
+}
+
+/* Responsive: calendario ocupa todo */
+@media (max-width: 900px) {
+  .divCalendario {
+    padding: 1rem;
+    height: auto;
+  }
+}
+
+/* =====================================================
+   BREADCRUMB (nuevo estilo elegante)
+===================================================== */
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  font-size: 1.15rem;              /* 🔥 Más grande */
+  font-weight: 500;                /* Más elegante */
+  color: var(--blanco);
+
+  margin-bottom: 1.6rem;
+  opacity: 0.9;
+
+  letter-spacing: 0.3px;
+}
+
+.breadcrumb .crumb {
+  opacity: 0.7;
+  transition: 0.2s ease;
+}
+
+.breadcrumb .crumb:hover {
+  opacity: 1;                      /* 🔥 Pequeño hover elegante */
+}
+
+.breadcrumb .crumb.active {
+  font-weight: 700;                /* 🔥 Destaca el actual */
+  opacity: 1;
+}
+
+.breadcrumb .separator {
+  opacity: 0.6;
+  font-size: 1.2rem;
+  margin: 0 4px;
+}
+
+/* Si quieres que el enlace HOME sea clicable con estilo bonito */
+.breadcrumb .link {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--blanco);
+}
+
+.breadcrumb .link:hover {
+  text-decoration: underline;
+}
+
+/* =====================================================
+   FULLCALENDAR ESTILO GLASS
+===================================================== */
+
+.fc {
+  flex: 1 1 auto;           /* 🔥 que FC llene el espacio vertical */
+  min-height: 0;            /* 🔥 evita desbordes */
+  background: rgba(255,255,255,0.08);
+  padding: 1rem;
+
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+
+  backdrop-filter: blur(6px);
+
+  color: var(--blanco);
+}
+
+/* Botones */
+.fc .fc-button {
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: var(--blanco);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-weight: 500;
+    
+  backdrop-filter: blur(4px);
+  transition: 0.2s ease;
+}
+
+.fc .fc-button:hover {
+  background: rgba(255,255,255,0.25);
+  transform: scale(1.03);
+}
+
+.fc .fc-button-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Títulos */
+.fc .fc-toolbar-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--blanco);
+}
+
+/* Celdas de día */
+.fc-daygrid-day {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.fc-daygrid-day:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+/* Eventos */
+.fc-event {
+  border-radius: 6px;
+  padding: 2px 4px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+
+  backdrop-filter: blur(4px);
+}
+
+.fc-daygrid-event-dot {
+  display: none !important;
+}
+
+.fc-event-time {
+  display: none !important;
+}
+
+
+
+
+.fc-today-button{
+    cursor: pointer;
+}
+
+.BotonSuscribirseNuevo{
+  width: 10rem;
+  height: 2rem;
+  font-size: 1rem;
+  margin-left: 2rem;
+}
+
+/* Botón cuando es PROPIO */
+.boton-propio {
+  background: rgba(255,255,255,0.25); /* gris suave */
+  color: var(--blanco);
+  cursor: default !important;
+}
+
+/* Botón cuando estás SUSCRITO */
+.boton-desuscribirse {
+  background: rgb(201, 112, 112);
+  color: var(--blanco) !important;
+}
+
+/* Botón cuando NO estás suscrito */
+.boton-suscribirse {
+  background: var(--segundo) !important; /* tu color primario */
+  color: var(--blanco) !important;
+}
+
+.boton-suscribirse:hover {
+  border: 2px solid var(--segundo);
+  background: var(--primero) !important; /* tu color primario */
+}
+
+.boton-propio:hover {
+  background: rgba(255,255,255,0.25); /* gris suave */
+  color: var(--blanco);
+  cursor: default !important;
+}
+
+.boton-desuscribirse:hover {
+  background: rgb(105, 18, 18);
+  color: var(--blanco) !important;
+}
+
+.inputBuscarEventos {
+  margin-left: auto;
+  margin-right: 10px;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.2s;
+}
+
+.inputBuscarEventos:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+}
+
+
+/* =====================================================
+   RESPONSIVE: Breadcrumb + Buscador + Botón en móvil
+===================================================== */
+@media (max-width: 900px) {
+  
+  .breadcrumb {
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch; /* que ocupen el ancho */
+    gap: 10px;
+    text-align: center;
+  }
+
+  .breadcrumb .inputBuscarEventos {
+    width: 100%;
+    margin: 0;
+    margin-top: 8px;
+    font-size: 1rem;
+  }
+
+  .BotonSuscribirseNuevo {
+    margin: 0;
+    width: 100%;
+    height: 2.4rem;
+    font-size: 1rem;
+  }
+
+  .divCalendario {
+    padding: 0.5rem;
+    height: auto !important;
+  }
+
+  .fc {
+    padding: 0.5rem;
+    box-shadow: none;      /* opcional: evita overflow */
+    border-radius: 8px;
+  }
+
+  .fc .fc-toolbar-title {
+    font-size: 1.1rem !important;
+  }
+
+   /* toolbar vertical */
+  .fc .fc-toolbar {
+    flex-direction: column !important;
+    gap: 6px;
+  }
+
+  /* cada subsección centrada */
+  .fc .fc-toolbar-chunk {
+    display: flex;
+    justify-content: center;
+    gap: 8px;      /* separa HOY de las flechas */
+    flex-wrap: wrap;
+  }
+
+  /* botones más pequeños */
+  .fc .fc-button {
+    padding: 6px 10px !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* título más pequeño */
+  .fc .fc-toolbar-title {
+    font-size: 1.1rem !important;
+  }
+
+}

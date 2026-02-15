@@ -1,0 +1,116 @@
+/* ============================================
+   CONFIGURACIÓN BASE DEL DOCUMENTO
+   (Altura, márgenes y tipografía global)
+============================================ */
+html,
+body {
+  
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  color: var(--primero);
+  font-family: 'Segoe UI', system-ui;
+  background-color: var(--cuarto);
+
+  /* Sistema global de escalado de fuente */
+  font-size: calc(var(--base-font-size) * var(--text-multiplier));
+  
+
+}
+
+/* ============================================
+   TRANSICIONES UNIVERSALES
+   (Animaciones suaves para cambios de estilo)
+============================================ */
+* {
+  transition: background-color 0.3s ease,
+              transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   TEMA PRINCIPAL (PALETA DE COLORES)
+============================================ */
+:root {
+  --negro: #000000;
+  --blanco: #ffffff;
+
+  /* Colores del tema principal */
+  --primero: #CCABD8;
+  --segundo: #8474A1;
+  --tercero: #6EC6CA;
+  --cuarto: #08979D;
+  --quinto:#055B5C;
+}
+
+/* ============================================
+   TEMA ALTERNATIVO 1
+   (Se activa agregando la clase .estilo2 al <html>)
+============================================ */
+:root.estilo2 {
+  --negro: #000000;
+  --blanco: #ffffff;
+
+  --primero: #3d0a05;
+  --segundo: #7f1f0e;
+  --tercero: #aa6054;
+  --cuarto: #a58570;
+  --quinto:#dda887;
+}
+
+/* ============================================
+   TEMA ALTERNATIVO 2
+   (Se activa agregando la clase .estilo3 al <html>)
+============================================ */
+:root.estilo3 {
+  --negro: #000000;
+  --blanco: #ffffff;
+
+  --primero: #0B0B0C;   /* Negro profundo */
+  --segundo: #1A1A1C;   /* Gris carbón */
+  --tercero: #2A2A2D;   /* Gris oscuro */
+  --cuarto: #3C3C40;    /* Gris medio */
+  --quinto: #636363;    /* Gris claro (texto/acento) */   
+}
+
+/* ============================================
+   SISTEMA DE TAMAÑOS DE FUENTE
+   (Controla la escala global de la app)
+============================================ */
+.font-small {
+  --base-font-size: clamp(10px, 1.5vw, 12px);
+  --text-multiplier: 0.9;
+}
+
+.font-medium {
+  --base-font-size: clamp(12px, 2vw, 16px);
+  --text-multiplier: 1;
+}
+
+.font-large {
+  --base-font-size: clamp(14px, 3vw, 18px);
+  --text-multiplier: 1.1;
+}
+
+
+/* ============================================
+   FUENTES PERSONALIZADAS (opcional)
+   Desactivado por ahora, listo para uso futuro.
+============================================ */
+/*
+@font-face {
+  font-family: 'CustomFont1';
+  src: url('../fuentes/tipografia1.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CustomFont2';
+  src: url('../fuentes/tipografia2.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+*/

@@ -1,0 +1,23 @@
+# Excluye carpetas de dependencias y de build que no son necesarias
+# en el contexto de la construcción, ya que serán instaladas/generadas
+# dentro del contenedor (si usas un Dockerfile multi-etapa)
+node_modules
+build
+dist
+out
+.cache
+.env
+.local
+
+# Archivos de configuración o control de versión
+.git
+.gitignore
+.npmrc
+npm-debug.log*
+
+# Entornos de desarrollo/IDE
+.vscode
+.idea
+
+# Si usas testing/mocks grandes, añádelos aquí
+# e.g. /test/fixtures

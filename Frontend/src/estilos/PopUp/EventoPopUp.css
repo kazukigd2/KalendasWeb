@@ -1,0 +1,234 @@
+/* ======================================================
+   OVERLAY
+====================================================== */
+.evento-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999 !important;
+
+    animation: fade-in 0.25s ease forwards;
+}
+
+/* ======================================================
+   TARJETA PRINCIPAL (ANCHA)
+====================================================== */
+.evento-popup-card {
+  width: 60rem;                      /* Muy ancho */
+  max-height: 80vh;   
+  background: var(--quinto);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 1.2rem;
+  padding: 2rem;
+
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  color: var(--blanco);
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  animation: slide-up 0.25s ease forwards;
+}
+
+
+
+/* ======================================================
+   CABECERA (TÍTULO + X)
+====================================================== */
+.evento-popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: .8rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.evento-popup-header h2 {
+  margin: 0;
+  color: var(--primero);
+  font-size: 1.8rem;
+}
+
+
+
+.evento-popup-close {
+    background: transparent;
+    border: none;
+    font-size: 1.6rem;
+    color: var(--blanco);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+.evento-popup-close:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+
+/* ======================================================
+   SCROLL INTERNO
+====================================================== */
+.evento-popup-scroll {
+  overflow-y: auto;
+  padding-right: 0.4rem;
+  padding-bottom: 1rem;
+
+  flex-grow: 1;
+}
+
+.evento-popup-scroll::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.evento-popup-scroll::-webkit-scrollbar-thumb {
+  background: var(--tercero);
+  border-radius: 1rem;
+}
+
+/* ======================================================
+   CAMPOS DEL FORMULARIO
+====================================================== */
+.ev-field {
+  margin-bottom: 1.3rem;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.ev-field label {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+    display: block;
+    opacity: 0.85;
+}
+
+.ev-text {
+    background: rgba(255,255,255,0.06);
+    padding: 0.7rem;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.4rem;
+}
+
+.ev-field input,
+.ev-field select,
+.ev-field textarea {
+  padding: 0.75rem 1rem;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+
+  color: var(--blanco);
+  border-radius: 0.6rem;
+  font-size: 1rem;
+
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.ev-field input:focus,
+.ev-field select:focus,
+.ev-field textarea:focus {
+  border-color: var(--primero);
+  background: rgba(255,255,255,0.15);
+}
+
+.ev-field select option {
+  background: rgba(255, 255, 255, 0.9);
+  color: rgb(0, 0, 0);
+}
+
+/* ======================================================
+   DOS COLUMNAS AUTOMÁTICAS
+====================================================== */
+.ev-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+@media (max-width: 600px) {
+    .ev-two-col {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ======================================================
+   MAPA (100% WIDTH)
+====================================================== */
+.ev-map-wrapper {
+  width: 100%;
+  height: 18rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+
+  border: 2px solid rgba(255,255,255,0.12);
+}
+
+
+.ev-map-wrapper > div {
+  width: 100%;
+  height: 100%;
+}
+
+/* ======================================================
+   FOOTER BOTONES
+====================================================== */
+.evento-popup-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.select-etiqueta:hover {
+  filter: none;
+  transform: none;
+}
+
+  
+/* ======================================================
+   ANIMACIONES
+====================================================== */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.evento-calendario-asociado {
+    font-size: 0.95rem;
+    margin-top: -4px;
+    margin-bottom: 10px;
+    padding: 4px 10px;
+
+    display: inline-block;
+
+    background: rgba(255, 255, 255, 0.08);
+    border-left: 3px solid var(--primero); /* ⭐ toque elegante */
+    border-radius: 6px;
+
+    color: var(--blanco);
+    opacity: 0.95;
+    backdrop-filter: blur(4px);
+
+    transition: 0.2s ease;
+}
+
+.evento-calendario-asociado strong {
+    color: var(--primero);
+    font-weight: 700;
+}
+

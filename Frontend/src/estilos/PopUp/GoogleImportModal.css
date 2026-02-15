@@ -1,0 +1,75 @@
+/* ===================== CONTENEDOR DE LA LISTA ===================== */
+.google-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.google-loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--blanco);
+    opacity: 0.7;
+}
+
+.google-empty {
+    text-align: center;
+    color: var(--blanco);
+    padding: 1rem;
+}
+
+/* ===================== FILA DE CALENDARIO (ITEM) ===================== */
+.google-calendar-item {
+    /* Usamos el mismo estilo que tus inputs (.cal-field input) */
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--blanco);
+    transition: all 0.2s ease;
+}
+
+/* Efecto Hover suave */
+.google-calendar-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateX(4px); /* Pequeño movimiento a la derecha */
+}
+
+/* ===================== TEXTOS DEL ITEM ===================== */
+.google-cal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    overflow: hidden; /* Para que el texto largo no rompa el diseño */
+    margin-right: 1rem;
+}
+
+.google-cal-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.google-cal-primary {
+    font-size: 0.85rem;
+    color: var(--tercero);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Texto de descripción superior */
+.google-description {
+    color: var(--blanco);
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+}

@@ -1,0 +1,28 @@
+{
+  "name": "email_cloud_service",
+  "version": "1.0.0",
+  "description": "Microservicio de notificaciones por email para Kalendas",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@getbrevo/brevo": "^3.0.1",
+    "cloudinary": "^2.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "morgan": "^1.10.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "keywords": [],
+  "author": "Kazuki",
+  "license": "MIT"
+}

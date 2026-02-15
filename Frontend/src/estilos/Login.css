@@ -1,0 +1,216 @@
+/* ======================================================
+   LAYOUT GENERAL SPLIT SCREEN
+====================================================== */
+.login-page {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ======================================================
+   PANEL IZQUIERDO (HERO)
+====================================================== */
+.login-left {
+  flex: 1;
+  background-image: url("https://images.unsplash.com/photo-1523292562811-8870a6a6e5e0?auto=format&fit=crop&w=1600&q=60");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.login-left-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.45),
+    rgba(0,0,0,0.65)
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 5vw, 4rem);
+  color: var(--blanco);
+}
+
+.login-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin: 0 0 1rem 0;
+}
+
+.login-subtitle {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  max-width: 480px;
+  opacity: 0.9;
+}
+
+
+/* ======================================================
+   PANEL DERECHO (FORM)
+====================================================== */
+.login-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Card principal del login */
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.login-card h2 {
+  margin: 0;
+  color: var(--blanco);
+}
+
+.login-description {
+  color: var(--blanco);
+  opacity: 0.85;
+  margin-bottom: 1rem;
+}
+
+/* Inputs */
+.login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  color: var(--blanco);
+}
+
+.login-field label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.login-field input {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.85);
+  transition: 0.2s;
+}
+
+.login-field input:focus {
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+}
+
+/* Error */
+.login-error {
+  color: #ffcccc;
+  text-align: center;
+}
+
+/* Registro */
+.login-register {
+  text-align: center;
+  color: var(--blanco);
+}
+
+.register-link {
+  background: none;
+  border: none;
+  color: var(--tercero);
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  text-decoration: underline;
+  transition: 0.2s;
+}
+
+.register-link:hover {
+  color: var(--primero);
+  transform: scale(1.05);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Da margen al botón dentro del formulario */
+.login-form button,
+.login-form .boton {
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+/* ======================================================
+   RESPONSIVE: MÓVILES (columna)
+====================================================== */
+@media (max-width: 700px) {
+  .login-page {
+    flex-direction: column;
+  }
+
+  /* Reducimos la altura para que no se corte el texto */
+  .login-left {
+    height: 32vh;
+    min-height: 180px; /* ¡Nuevo! Evita que se encoja demasiado */
+  }
+
+  /* Permitimos scroll interno si el texto no cabe */
+  .login-left-overlay {
+    padding: 1.5rem;
+    overflow-y: auto;
+  }
+
+  /* Reducimos tamaño de fuentes */
+  .login-title {
+    font-size: clamp(1.8rem, 6vw, 3rem);
+  }
+
+  .login-subtitle {
+    font-size: clamp(0.85rem, 3vw, 1.1rem);
+  }
+
+  .login-right {
+    padding: 1.5rem;
+  }
+}
+
+
+
+@media (min-width: 1600px) {
+  .login-card {
+    max-width: 520px;
+    padding: 2.8rem;
+    gap: 1.6rem;
+  }
+
+  .login-title {
+    font-size: 4.5rem;
+  }
+
+  .login-subtitle {
+    font-size: 1.5rem;
+    max-width: 600px;
+  }
+
+  .login-field input {
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .login-form button,
+  .login-form .boton {
+    font-size: 1.1rem;
+    padding: 0.9rem;
+  }
+}

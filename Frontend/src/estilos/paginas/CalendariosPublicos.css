@@ -1,0 +1,242 @@
+/* ======================================================
+   CONTENEDOR GENERAL
+====================================================== */
+.publicos-container {
+  
+  color: var(--blanco);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  
+  
+}
+
+/* ======================================================
+   CABECERA - IGUAL QUE EL HOME
+====================================================== */
+.publicos-header-bg {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.35)
+  );
+  backdrop-filter: blur(6px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  
+  padding-block: 2.5rem 2rem;
+  overflow-x: clip;
+}
+
+.publicos-header-content {
+  max-width: 900px;
+  width: 95%;
+  text-align: center;
+  color: var(--blanco);
+}
+
+.publicos-title {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 1px;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.4);
+}
+
+.publicos-subtitle {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  opacity: 0.9;
+  margin-top: 0.7rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
+}
+
+/* Buscador dentro de la cabecera */
+.publicos-search-wrapper {
+    
+  position: relative;
+  max-width: 500px;
+  margin: 2rem auto 0 auto;
+}
+
+.publicos-search-input {
+  width: 86%;
+  padding: 0.9rem 1.2rem 0.9rem 3rem;
+  border-radius: 25px;
+  font-size: 1rem;
+
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: var(--blanco);
+  backdrop-filter: blur(6px);
+
+  transition: 0.25s ease;
+}
+
+.publicos-search-input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+.publicos-search-input:focus {
+  border-color: var(--primero);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.publicos-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  opacity: 0.7;
+  filter: brightness(0) invert(1);
+  pointer-events: none;
+}
+
+
+
+/* ======================================================
+   GRID
+====================================================== */
+.publicos-grid {
+ padding: 0rem 5vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+/* ======================================================
+   TARJETA DE CALENDARIO
+====================================================== */
+.publicos-card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 1rem;
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: 0.25s ease;
+  cursor: pointer;
+}
+
+.publicos-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+/* ===== Imagen ===== */
+.publicos-img-wrapper {
+  position: relative;
+  height: 160px;
+}
+
+.publicos-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.publicos-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.55);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* ===== Contenido ===== */
+.publicos-info {
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.publicos-card-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.publicos-card-desc {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  line-height: 1.35;
+  max-height: 2.6rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.publicos-card-btn {
+  margin-top: 0.4rem;
+}
+
+/* Botón para calendarios propios */
+.publicos-own-btn {
+  width: 100%;
+  padding: 10px;
+  background: rgba(255,255,255,0.35);
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #ddd;
+  cursor: default;
+}
+
+/* ======================================================
+   MENSAJES
+====================================================== */
+.publicos-loading,
+.publicos-empty {
+  text-align: center;
+  opacity: 0.8;
+  font-size: 1.1rem;
+  grid-column: 1 / -1;
+}
+
+/* Botón cuando YA ESTOY SUSCRITO (Desuscribirse) */
+.publicos-unsubscribe-btn {
+  padding: 10px;
+  background: rgb(201, 112, 112);
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  color: white;
+  transition: 0.25s ease;
+  cursor: pointer;
+}
+
+.publicos-unsubscribe-btn:hover {
+  background: rgb(105, 18, 18);
+  transform: translateY(-2px);
+}
+
+
+/* Botón de calendario propio (gris) */
+.publicos-own-btn {
+  padding: 10px;
+  background: rgba(255,255,255,0.25); /* gris suave */
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  color: rgba(255,255,255,0.7);
+  cursor: default;
+  opacity: 0.7;
+}
+

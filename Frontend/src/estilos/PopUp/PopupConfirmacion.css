@@ -1,0 +1,99 @@
+/* ======================================================
+   OVERLAY OSCURO + BLUR
+====================================================== */
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 20000;
+    animation: fadeIn 0.25s ease forwards;
+}
+
+/* ======================================================
+   TARJETA DEL POPUP (Glass effect premium)
+====================================================== */
+.popup-card {
+    width: 30rem;                      /* ⭐ MÁS ANCHO */
+    padding: 2.4rem 2rem;              /* ⭐ MÁS ALTO */
+    
+    background: rgba(25, 25, 25, 0.82);
+    border-radius: 1.2rem;
+    box-shadow: 0 12px 38px rgba(0,0,0,0.55);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    color: var(--blanco);
+    text-align: center;
+
+    animation: slideUp 0.25s ease forwards;
+}
+
+/* ======================================================
+   TÍTULO
+====================================================== */
+.popup-title {
+    margin: 0;
+    margin-bottom: 1.2rem;
+
+    font-size: 1.6rem;               /* ⭐ más grande */
+    font-weight: 600;
+    color: var(--quinto);
+}
+
+/* ======================================================
+   MENSAJE
+====================================================== */
+.popup-message {
+    margin: 0;
+    font-size: 1.15rem;              /* ⭐ más legible */
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    line-height: 1.5;
+}
+
+/* ======================================================
+   BOTONES
+====================================================== */
+.popup-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.4rem;                     /* ⭐ separación mayor */
+}
+
+/* BOTONES MÁS GRANDES */
+.popup-buttons .boton-mini,
+.popup-buttons .boton-mini-rojo {
+    padding: 0.7rem 1.4rem;         /* ⭐ más grandes */
+    font-size: 1rem;                /* ⭐ texto mayor */
+    border-radius: 0.6rem;
+}
+
+.popup-buttons .boton-mini:hover,
+.popup-buttons .boton-mini-rojo:hover {
+    transform: scale(1.06);
+}
+
+/* ======================================================
+   ANIMACIONES
+====================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(28px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,140 @@
+/* ============================================
+   BASE DEL BOTÓN
+============================================ */
+.boton {
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s ease-in-out;
+    color: var(--blanco);
+}
+
+/* ============================================
+   TIPO PRIMARIO
+============================================ */
+.boton-primario {
+    padding: 0.6rem 1rem;
+    border-radius: 0.6rem;
+    background: var(--tercero);
+    font-size: 1rem;
+}
+
+.boton-primario:hover {
+    background: var(--segundo);
+    transform: scale(1.02);
+}
+
+/* ============================================
+   TIPO MENU
+============================================ */
+.boton-menu {
+    width: 100%;
+    background: none;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+.boton-menu:hover {
+    background: var(--tercero);
+}
+
+/* ============================================
+   TIPO ICONO (botón circular sin badge)
+============================================ */
+.boton-icono {
+    background: none;
+    font-size: 1.6rem;
+    padding: 0.3rem;
+    border-radius: 50%;
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boton-icono:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* ============================================
+   TIPO ICONO CON NOTIFICACIONES (badge)
+============================================ */
+.boton-icono-notif {
+    position: relative;
+    background: none;
+    font-size: 1.6rem;
+    padding: 0.3rem;
+    border-radius: 50%;
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Badge rojo animado */
+.boton-badge {
+    position: absolute;
+    top: -0.2rem;
+    right: -0.2rem;
+    background: red;
+    color: white;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+    pointer-events: none;
+
+    animation: badge-pulse 1.3s infinite ease-in-out;
+}
+
+@keyframes badge-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+
+/* ============================================
+   ESTADO DISABLED
+============================================ */
+.boton-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* ============================================
+   BOTÓN MINI (ej: "Todas leídas")
+============================================ */
+.boton-mini {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 0.4rem;
+    background: var(--tercero);
+}
+
+.boton-mini:hover {
+    background: var(--segundo);
+}
+
+/* ============================================
+   BOTÓN MINI ROJO (ej: "Borrar")
+============================================ */
+.boton-mini-rojo {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 0.4rem;
+    background: #c62828;
+    color: white;
+}
+
+.boton-mini-rojo:hover {
+    background: #b71c1c;
+}

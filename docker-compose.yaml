@@ -1,0 +1,106 @@
+x-common-env: &common-env
+  - PYTHONUNBUFFERED=1
+  - MONGO_URI=mongodb://mongo:27017/
+  - INTERNAL_API_KEY=dfjklghdfjkghjkdfghjkldfgh7843jknsdu.!hjsdfsh
+
+services:
+    
+  mongo:    
+    image: mongo:7.0
+    container_name: mongo
+    ports:
+      - "27018:27017"
+    volumes:
+      - ./Backend/mongo_init:/docker-entrypoint-initdb.d # Inicializacion de la base de datos
+
+  gateway:
+    build: ./Backend/api_gateway_service
+    ports:
+        - "8001:8001"  # host:container
+    environment:
+    - PYTHONUNBUFFERED=1
+    - INTERNAL_API_KEY=dfjklghdfjkghjkdfghjkldfgh7843jknsdu.!hjsdfsh
+    - COMENTARIOS=http://comentario:8003/comentarios
+    - EVENTOS=http://evento:8004/eventos
+    - CALENDARIOS=http://calendario:8002/calendarios
+    - ETIQUETAS=http://etiqueta:8005/etiquetas
+    - NOTIFICACIONES=http://notificacion:8006/notificaciones
+    - USUARIOS=http://usuario:8007/usuarios
+
+
+  calendario:
+    build: ./Backend/calendario_service
+    ports:
+      - "8002:8002"  # host:container
+    environment: *common-env
+    depends_on:
+      - mongo
+    
+
+  comentario:
+    build: ./Backend/comentario_service
+    ports:
+      - "8003:8003"  # host:container
+    environment: *common-env
+    depends_on:
+      - mongo
+
+
+  evento:
+    build: ./Backend/evento_service
+    ports:
+      - "8004:8004"  # host:container
+    environment: *common-env
+    depends_on:
+      - mongo
+  
+
+  etiqueta:
+    build: ./Backend/etiqueta_service
+    ports:
+      - "8005:8005"  # host:container
+    environment: *common-env
+    depends_on:
+      - mongo
+
+
+  notificacion:
+    build: ./Backend/notificacion_service
+    ports:
+      - "8006:8006"  # host:container
+    environment: *common-env
+    depends_on:
+      - mongo 
+
+  usuario:
+    build: ./Backend/usuario_service
+    ports:
+      - "8007:8007"  # host:container
+    environment: *common-env
+    depends_on:
+      - mongo 
+
+  email_multimedia:
+    build: ./Backend/email_cloud_service
+    container_name: email_multimedia
+    ports:
+      - "8008:8008"
+    environment:
+      - CLOUDINARY_CLOUD_NAME=dwcl31zpr
+      - CLOUDINARY_API_KEY=138838798273259
+      - CLOUDINARY_API_SECRET=secretkei
+      - BREVO_API_KEY=secretkei
+      - EMAIL_FROM=kalendas.web@gmail.com
+      - PORT=8008
+
+  frontend:
+    container_name: frontend
+    build: 
+      context: ./Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+
+
+
+

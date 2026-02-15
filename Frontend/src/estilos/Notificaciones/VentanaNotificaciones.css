@@ -1,0 +1,188 @@
+/* ======================================================
+   POPUP DE NOTIFICACIONES (panel flotante premium)
+====================================================== */
+
+.ventana-notificaciones {
+    position: absolute;
+    top: 4rem;
+    right: 1.2rem;
+
+    width: 22rem;
+
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    padding: 1rem;
+    border-radius: 1rem;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.45);
+
+    max-height: 28rem;
+    overflow-y: auto;
+
+    z-index: 3000;
+
+    /* Animación entrada */
+    animation: notif-slide-in 0.28s ease forwards;
+
+    opacity: 0;
+    transform: translateY(-1rem) scale(0.96);
+}
+
+.ventana-notificaciones.cerrando {
+    animation: notif-slide-out 0.25s ease forwards;
+}
+
+/* Entrada elegante */
+@keyframes notif-slide-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-1rem) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Salida elegante */
+@keyframes notif-slide-out {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-1rem) scale(0.96);
+    }
+}
+
+/* ======================================================
+   CABECERA DEL POPUP
+====================================================== */
+
+.ventana-header {
+    margin-bottom: 1rem;
+}
+
+.ventana-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ventana-titulo {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Botones mini integrados */
+.ventana-header-top .boton-mini,
+.ventana-header-top .boton-mini-rojo {
+    padding: 0.35rem 0.55rem;
+    font-size: 0.75rem;
+    border-radius: 0.4rem;
+}
+
+/* ======================================================
+   TARJETA INDIVIDUAL DE NOTIFICACIÓN
+====================================================== */
+
+.noti-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+
+    padding: 0.9rem;
+    border-radius: 0.7rem;
+
+    margin-bottom: 0.8rem;
+
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+/* Hover elegante */
+.noti-container:not(.removing):hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateY(-2px);
+}
+
+/* Eliminación */
+.noti-container.removing {
+    opacity: 0;
+    transform: translateX(1rem);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* Notificación leída */
+.noti-container.leida {
+    background: rgba(255,255,255,0.04);
+    opacity: 0.75;
+}
+
+/* ======================================================
+   TEXTO
+====================================================== */
+
+.noti-content {
+    flex: 1;
+    margin-right: 0.6rem;
+}
+
+.noti-evento {
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+    display: block;
+}
+
+.noti-comentario {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.noti-autor {
+    font-size: 0.75rem;
+    opacity: 0.65;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* ======================================================
+   BOTÓN BORRAR
+====================================================== */
+
+.noti-actions {
+    display: flex;
+    align-items: center;
+}
+
+/* Botón mini */
+.noti-actions .boton-mini-rojo {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.55rem;
+    border-radius: 0.4rem;
+}
+
+/* ======================================================
+   SCROLLBAR
+====================================================== */
+
+.ventana-notificaciones::-webkit-scrollbar {
+    width: 6px;
+}
+
+.ventana-notificaciones::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.18);
+    border-radius: 5px;
+}
+
+.ventana-notificaciones::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.27);
+}
+
